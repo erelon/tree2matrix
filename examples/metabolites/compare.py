@@ -57,6 +57,38 @@ if __name__ == '__main__':
     with open("results_xgboost.pkl", "rb") as f:
         xgboost_r = pickle.load(f)
 
+    hermann_best = np.argmax(our_r[0])
+    tab_best = np.argmax(tabnet_r[0])
+    xgboost_best = np.argmax(xgboost_r[0])
+
+    print("Best stats for hermann")
+    print(f"acc: {our_r[0][hermann_best]}\tauc: {our_r[1][hermann_best]}\tf1: {our_r[2][hermann_best]}")
+    print("Best stats for tabnet")
+    print(f"acc: {tabnet_r[0][tab_best]}\tauc: {tabnet_r[1][tab_best]}\tf1: {tabnet_r[2][tab_best]}")
+    print("Best stats for xgboost")
+    print(f"acc: {xgboost_r[0][xgboost_best]}\tauc: {xgboost_r[1][xgboost_best]}\tf1: {xgboost_r[2][xgboost_best]}")
+    print()
+
+    # mean and std of models:
+    print("Mean and std of models:")
+    print("HERMANN:")
+    print(f"Accuracy: {np.mean(our_r[0])} ± {np.std(our_r[0])}")
+    print(f"AUC: {np.mean(our_r[1])} ± {np.std(our_r[1])}")
+    print(f"F1: {np.mean(our_r[2])} ± {np.std(our_r[2])}")
+    print()
+    print("TabNet:")
+    print(f"Accuracy: {np.mean(tabnet_r[0])} ± {np.std(tabnet_r[0])}")
+    print(f"AUC: {np.mean(tabnet_r[1])} ± {np.std(tabnet_r[1])}")
+    print(f"F1: {np.mean(tabnet_r[2])} ± {np.std(tabnet_r[2])}")
+    print()
+    print("Xgboost:")
+    print(f"Accuracy: {np.mean(xgboost_r[0])} ± {np.std(xgboost_r[0])}")
+    print(f"AUC: {np.mean(xgboost_r[1])} ± {np.std(xgboost_r[1])}")
+    print(f"F1: {np.mean(xgboost_r[2])} ± {np.std(xgboost_r[2])}")
+    print()
+
+
+
     stat_acc = f_oneway(our_r[0], tabnet_r[0], xgboost_r[0])  # Accuracy
     stat_auc = f_oneway(our_r[1], tabnet_r[1], xgboost_r[1])  # AUC
     stat_f1 = f_oneway(our_r[2], tabnet_r[2], xgboost_r[2])  # F1

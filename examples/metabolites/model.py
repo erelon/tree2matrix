@@ -21,8 +21,8 @@ class SimpleCNN(nn.Module):
         self.bn2 = nn.BatchNorm2d(64)
         self.dropout2 = nn.Dropout2d(p=0.25)  # Dropout with probability 0.25
         self.pool = nn.MaxPool2d(2, 2)
-        self.fc1 = nn.Linear(64 * 32, 64)
-        self.fc2 = nn.Linear(64, 2)  # Assuming binary classification
+        self.fc1 = nn.Linear(64 * 32, 128)
+        self.fc2 = nn.Linear(128, 2)  # Assuming binary classification
         self.dropout3 = nn.Dropout(p=0.5)  # Dropout with probability 0.5 for fully connected layer
 
     def forward(self, x):
