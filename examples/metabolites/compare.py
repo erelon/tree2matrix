@@ -87,8 +87,6 @@ if __name__ == '__main__':
     print(f"F1: {np.mean(xgboost_r[2])} ± {np.std(xgboost_r[2])}")
     print()
 
-
-
     stat_acc = f_oneway(our_r[0], tabnet_r[0], xgboost_r[0])  # Accuracy
     stat_auc = f_oneway(our_r[1], tabnet_r[1], xgboost_r[1])  # AUC
     stat_f1 = f_oneway(our_r[2], tabnet_r[2], xgboost_r[2])  # F1
