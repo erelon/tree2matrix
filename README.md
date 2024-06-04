@@ -56,18 +56,18 @@ In the `transform` method, the parameters are as follows:
 
 The `transform` method returns two numpy arrays: `matrices_result` is the dendrogram representation of the matrices, and `new_order_names` contains the names of the nodes in the new order.
 
-## exmaples
+# exmaples
 The code has 4 usage examples for HERMANN, including a comparsion to state-of-the-art models.
 
-# metabloties and microbiome
+## metabloties and microbiome
 To Build the trees from the data run construct_tree.py, you can then use model.py to build a CNN model that classifies according to the matrices from main.py.
 If you with to compare the results to other models, run model_tabnet.py and model_xgboost.py and then use compare.py to create a report.
 
-# mushroom
+## mushroom
 To Build the trees from the data run construct_tree.py, notice that this dataset is large and that the operation is longer and consumes more memory.
 To train a model with the results and compare to other models, we propose using the notebook provided (mushrooms.ipynb). In the notebook there are links to download the results of the construct_tree run to save time.
 
-# text
+## text
 To Build the trees from the data run text_example.py, notice that this dataset is large and that the operation is longer and consumes more memory.
 To train a model with the results, we propose using the notebook provided (t2m_simple_text.ipynb) and to compare results use (bert_tfidf_on_text.ipynb). In the notebooks there are links to download the results of the construct_tree run to save time.
 
