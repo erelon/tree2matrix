@@ -61,7 +61,7 @@ The code has 4 usage examples for HERMANN, including a comparsion to state-of-th
 
 ## metabloties and microbiome
 To Build the trees from the data run construct_tree.py, you can then use model.py to build a CNN model that classifies according to the matrices from main.py.
-If you with to compare the results to other models, run model_tabnet.py and model_xgboost.py and then use compare.py to create a report.
+If you wish to compare the results to other models, run model_tabnet.py and model_xgboost.py and then use compare.py to create a report.
 
 ## mushroom
 To Build the trees from the data run construct_tree.py, notice that this dataset is large and that the operation is longer and consumes more memory.
