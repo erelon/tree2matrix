@@ -1,27 +1,11 @@
-# Project Title: Hierarchical Tree to Matrix Conversion for CNN Models (HERMANN)
+# Hierarchical Tree to Matrix Conversion for CNN Models (HERMANN)
 
-This project introduces a novel model, HERMANN, that converts hierarchical tree structures with values into matrices suitable for Convolutional Neural Networks (CNNs). The core purpose of this project is to provide a new approach for handling hierarchical data in deep learning models, particularly CNNs.
+This project introduces a novel model, HERMANN (Hierarchical Embedding foR Machine leArNiNg), that converts hierarchical tree structures with values into matrices suitable for Convolutional Neural Networks (CNNs). The core purpose of this project is to provide a new approach for handling hierarchical data in deep learning models, particularly CNNs.
+HERMANN constructs a unique tree that combines feature values with their hierarchy based on expert knowledge or feature relations, organizing it into an optimized 2D matrix for application with Convolutional Neural Networks (CNNs).
 
 ## Overview
 
-The project compares the performance of the HERMANN model in four different fields with well-known models. The comparison metrics include accuracy, Area Under the Curve (AUC), and F1 score. 
-
-## Core Component
-
-The core component of this project is located in the `main.py` file. This file contains the implementation of the HERMANN model and the necessary procedures to train and evaluate it.
-
-## How to Use
-
-To use the HERMANN model, follow the steps outlined in the `main.py` file. The file contains detailed comments and instructions on how to initialize, train, and evaluate the model. 
-
-## Requirements
-
-- Python 3.9.1
-- PyTorch
-- NumPy
-- Matplotlib
-- Seaborn
-- Scikit-learn
+The main.py contains the model itself. Additionally , the project contains comparison of it's the performance of the HERMANN model in four different fields with well-known models. The comparison metrics include accuracy, Area Under the Curve (AUC), and F1 score. 
 
 ## Installation
 
@@ -38,15 +22,10 @@ pip install -r requirements.txt
 
 The `Tree2Matrix` class is used to convert a tree structure into a matrix representation. Here's how to use it:
 
-1. **Initialize the class**
+**Transform a tree into a matrix**
 
 ```python
 t2m = Tree2Matrix()
-```
-
-2. **Transform a tree into a matrix**
-
-```python
 tree = generate_random_tree(10)  # Replace with your tree
 m, N = t2m.transform(tree, "val", "name")
 ```
@@ -63,21 +42,16 @@ The `transform` method returns two numpy arrays: `m` is the matrix representatio
 
 The `MatricesDendrogram` class is used to create a dendrogram from a list of matrices. Here's how to use it:
 
-1. **Initialize the class**
+**Transform a matrices using dendrogram**
 
 ```python
 md = MatricesDendrogram()
-```
-
-2. **Transform a list of matrices into a dendrogram**
-
-```python
-matrices_result, new_order_names = md.transform(M, N)
+matrices_result, new_order_names = md.transform(m, N)
 ```
 
 In the `transform` method, the parameters are as follows:
 
-- `M`: This is a list of matrices you want to transform. Each matrix should be a numpy array.
+- `m`: This is the matrices you want to transform. Each matrix should be a numpy array. - the input should come from the Tree2Matrix output.
 - `N`: This is a list of names corresponding to the matrices.
 
 The `transform` method returns two numpy arrays: `matrices_result` is the dendrogram representation of the matrices, and `new_order_names` contains the names of the nodes in the new order.
